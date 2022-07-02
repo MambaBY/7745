@@ -26,7 +26,6 @@ public class CatalogPage {
         element.shouldBe(visible);
 
         element.click();
-
         return page(expectedPageClass);
     }
 }
