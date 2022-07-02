@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name = "7745 test" parallel="tests" thread-count="1" verbose="5">
+    <test name = "Catalog filter">
+        <classes>
+            <class name = "filter.TestFilter">
+                <methods>
+                    <include name="verifyCatalogFilter">
+                        <parameter name = "categoryName" value = "Электроника"/>
+                        <parameter name = "productTypeName" value = "Телевизоры"/>
+                    </include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
