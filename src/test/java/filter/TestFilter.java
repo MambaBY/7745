@@ -20,8 +20,8 @@ public class TestFilter {
     }
 
     @Test
-    @Parameters({"categoryName", "productTypeName"})
-    public void verifyCatalogFilter(String categoryName, String productTypeName) {
+    @Parameters({"categoryName", "productTypeName", "manufacturerName"})
+    public void verifyCatalogFilter(String categoryName, String productTypeName, String manufacturerName) {
         open("https://7745.by", MainPage.class)
                 .isLogoDisplayed(true)
                 .clickButtonCatalog()
@@ -29,7 +29,11 @@ public class TestFilter {
                 .clickProductType(productTypeName, CatalogProductTypePage.class)
                 .isTitleDisplayed(true)
                 .verifyTitleText(productTypeName)
-                .clickFilterManufacturersButton();
+                .clickFilterManufacturersButton()
+                .clickManufacturerInDropdown(manufacturerName)
+                .isShowButtonDisplayed(true)
+                .clickShowButton();
+
 
 
 

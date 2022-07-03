@@ -9,6 +9,7 @@
                     <include name="verifyCatalogFilter">
                         <parameter name = "categoryName" value = "Электроника"/>
                         <parameter name = "productTypeName" value = "Телевизоры"/>
+                        <parameter name = "manufacturerName" value = "LG"/>
                     </include>
                 </methods>
             </class>
