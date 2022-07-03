@@ -19,6 +19,7 @@ public class CatalogProductTypePage {
     private final By showButton = By.xpath("//*[@class ='catalog-sbf-top catalog-sbf-btnset']//button[1]");
     //private final By appliedProduct = By.xpath("//*[@class ='catalog-filter__checkbox-item']//span[@class='i-checkbox']");
     private final By filteredProducts = By.xpath("//*[@class='catalog-item__wrapper']");
+    private final By productTitles = By.xpath("//*[@class ='catalog-item__row-block-info catalog-item__row-block-info--clmn catalog-item__row-block-info--h-title-stars']/div[1]");
 
 
 
@@ -74,6 +75,13 @@ public class CatalogProductTypePage {
 
     public CatalogProductTypePage verifyFelteredProductsAmmount (int expectedValue){
         $$(filteredProducts).shouldBe(CollectionCondition.sizeLessThanOrEqual(expectedValue));
+        return page(CatalogProductTypePage.class);
+    }
+
+    public CatalogProductTypePage verifyFilteredProductContainsText(String expectedValue){
+        for (SelenideElement element : $$(productTitles)){
+            element.shouldHave(Condition.text(expectedValue));
+        }
         return page(CatalogProductTypePage.class);
     }
 

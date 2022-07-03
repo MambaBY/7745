@@ -1,13 +1,14 @@
 package filter;
 
 import com.codeborne.selenide.Configuration;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.CatalogProductTypePage;
 import pages.MainPage;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TestFilter {
 
@@ -34,14 +35,17 @@ public class TestFilter {
                 .isShowButtonDisplayed(true)
                 .clickShowButton()
                 .isTitleDisplayed(true)
-                .verifyFelteredProductsAmmount(expectedAmount);
-
-
-
-
-
+                .verifyFelteredProductsAmmount(expectedAmount)
+                .verifyFilteredProductContainsText(manufacturerName);
+        screenshot("Test result for " + manufacturerName);
 
     }
+
+    @AfterMethod
+    void closeDriver() {
+        closeWebDriver();
+    }
+
 
 }
 
