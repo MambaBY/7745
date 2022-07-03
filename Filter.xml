@@ -7,9 +7,10 @@
             <class name = "filter.TestFilter">
                 <methods>
                     <include name="verifyCatalogFilter">
-                        <parameter name = "categoryName" value = "Электроника"/>
-                        <parameter name = "productTypeName" value = "Телевизоры"/>
-                        <parameter name = "manufacturerName" value = "LG"/>
+                        <parameter name = "categoryName" value = "Бытовая техника"/>
+                        <parameter name = "productTypeName" value = "Вытяжки"/>
+                        <parameter name = "manufacturerName" value = "GEFEST"/>
+                        <parameter name = "expectedAmount" value = "40"/>
                     </include>
                 </methods>
             </class>

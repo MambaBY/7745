@@ -1,9 +1,12 @@
 package pages;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+
+import java.nio.charset.CoderMalfunctionError;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -13,7 +16,9 @@ public class CatalogProductTypePage {
     private final By buttonFilterManufacturers = By.xpath("//*[@class = 'catalog-filter-control__item catalog-filter-control__spoiler']");
     private final By popupManufacturers = By.cssSelector(".catalog-filter-popover__inner");
     private final By productName = By.xpath("//*[@class = 'catalog-filter__checkbox-text']");
-    private final By showButton = By.xpath("//*[@class = 'btn btn-orange']");
+    private final By showButton = By.xpath("//*[@class ='catalog-sbf-top catalog-sbf-btnset']//button[1]");
+    //private final By appliedProduct = By.xpath("//*[@class ='catalog-filter__checkbox-item']//span[@class='i-checkbox']");
+    private final By filteredProducts = By.xpath("//*[@class='catalog-item__wrapper']");
 
 
 
@@ -53,6 +58,22 @@ public class CatalogProductTypePage {
 
     public CatalogProductTypePage clickShowButton(){
         $(showButton).click();
+        return page(CatalogProductTypePage.class);
+
+    }
+
+//    public CatalogProductTypePage isProductSelected (String name){
+//        SelenideElement element = $(By.xpath(String.format("//*[@class ='catalog-filter__checkbox-item' and contains('%s')]", name + "//span[@class='i-checkbox']")));
+//
+//
+//
+//        //$(appliedProduct).find(Condition.text(name));
+//        element.shouldBe(Condition.checked);
+//        return page(CatalogProductTypePage.class);
+//    }
+
+    public CatalogProductTypePage verifyFelteredProductsAmmount (int expectedValue){
+        $$(filteredProducts).shouldBe(CollectionCondition.sizeLessThanOrEqual(expectedValue));
         return page(CatalogProductTypePage.class);
     }
 
