@@ -12,7 +12,6 @@
                         <parameter name = "manufacturerName" value = "GEFEST"/>
                         <parameter name = "expectedAmount" value = "40"/>
                         <parameter name = "productNumber" value = "2"/>
-
                     </include>
                 </methods>
             </class>

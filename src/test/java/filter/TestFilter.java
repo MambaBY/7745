@@ -8,6 +8,8 @@ import org.testng.annotations.Test;
 import pages.CatalogProductTypePage;
 import pages.MainPage;
 
+import java.sql.Date;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestFilter {
@@ -41,8 +43,10 @@ public class TestFilter {
                 .isTitleDisplayed(true)
                 .addProductToCart()
                 .clickCart()
-                .isTitleDisplayed(true);
-
+                .isTitleDisplayed(true)
+                .isProductDysplayed(true)
+                .isTotalSumValueDisplayed(true)
+                .verifyProductsAmmountInCart();
 
         screenshot("Test result for " + manufacturerName);
 
