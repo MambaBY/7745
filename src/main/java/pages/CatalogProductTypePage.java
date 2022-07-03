@@ -4,6 +4,7 @@ import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 
 import java.nio.charset.CoderMalfunctionError;
@@ -84,5 +85,15 @@ public class CatalogProductTypePage {
         }
         return page(CatalogProductTypePage.class);
     }
+
+    public ProductDetailsPage clickOnProduct (int productNumber){
+       SelenideElement element = $(By.xpath(String.format("//*[@class = 'catalog-item catalog-item--shadow-hover js-product-control-root                     popup-class-trigger'][%s]/div/div", productNumber)));
+
+       element.shouldBe(Condition.visible);
+       element.click();
+       return page(ProductDetailsPage.class);
+    }
+
+
 
 }

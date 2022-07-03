@@ -21,8 +21,8 @@ public class TestFilter {
     }
 
     @Test
-    @Parameters({"categoryName", "productTypeName", "manufacturerName", "expectedAmount"})
-    public void verifyCatalogFilter(String categoryName, String productTypeName, String manufacturerName, int expectedAmount) {
+    @Parameters({"categoryName", "productTypeName", "manufacturerName", "expectedAmount", "productNumber"})
+    public void verifyCatalogFilter(String categoryName, String productTypeName, String manufacturerName, int expectedAmount, int productNumber) {
         open("https://7745.by", MainPage.class)
                 .isLogoDisplayed(true)
                 .clickButtonCatalog()
@@ -36,7 +36,14 @@ public class TestFilter {
                 .clickShowButton()
                 .isTitleDisplayed(true)
                 .verifyFelteredProductsAmmount(expectedAmount)
-                .verifyFilteredProductContainsText(manufacturerName);
+                .verifyFilteredProductContainsText(manufacturerName)
+                .clickOnProduct(productNumber)
+                .isTitleDisplayed(true)
+                .addProductToCart()
+                .clickCart()
+                .isTitleDisplayed(true);
+
+
         screenshot("Test result for " + manufacturerName);
 
     }
