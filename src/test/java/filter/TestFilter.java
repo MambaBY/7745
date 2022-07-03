@@ -27,7 +27,10 @@ public class TestFilter {
                 .clickButtonCatalog()
                 .clickCatalogCategory(categoryName)
                 .clickProductType(productTypeName, CatalogProductTypePage.class)
-                .isLogoDisplayedCatalog(true);
+                .isTitleDisplayed(true)
+                .verifyTitleText(productTypeName)
+                .clickFilterManufacturersButton();
+
 
 
     }
