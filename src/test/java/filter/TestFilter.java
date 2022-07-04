@@ -20,12 +20,13 @@ public class TestFilter {
         Configuration.timeout = 10000;
         Configuration.screenshots = true;
         Configuration.reportsFolder = "C:/Users/mamby/Desktop/7745shop/Screenshot";
+        Configuration.baseUrl = "https://7745.by";
     }
 
     @Test
     @Parameters({"categoryName", "productTypeName", "manufacturerName", "expectedAmount", "productNumber"})
     public void verifyCatalogFilter(String categoryName, String productTypeName, String manufacturerName, int expectedAmount, int productNumber) {
-        open("https://7745.by", MainPage.class)
+        open("/", MainPage.class)
                 .isLogoDisplayed(true)
                 .clickButtonCatalog()
                 .clickCatalogCategory(categoryName)
