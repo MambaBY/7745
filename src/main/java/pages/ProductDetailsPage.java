@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class ProductDetailsPage {
 
-    private final By title = By.xpath("//*[@class='product__title product__title--small-mt js-prod-title']");
-    private final By addToCartButton = By.xpath("//*[@class='controls-bl controls-bl--flex']");
+    private final By title = By.xpath("//*[@class='product__title js-prod-title']");
+    private final By addToCartButton = By.xpath("//*[@class='btn btn-orange btn-buy ']");
     private final By cartButton = By.xpath("//*[@class ='svg-icon header-icon__icon--cart']");
 
 

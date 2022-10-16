@@ -87,7 +87,7 @@ public class CatalogProductTypePage {
     }
 
     public ProductDetailsPage clickOnProduct (int productNumber){
-       SelenideElement element = $(By.xpath(String.format("//*[@class = 'catalog-item catalog-item--shadow-hover js-product-control-root                     popup-class-trigger'][%s]/div/div", productNumber)));
+       SelenideElement element = $(By.xpath(String.format("//*[@class = 'catalog-item catalog-item--shadow-hover js-product-control-root popup-class-trigger'][%s]/div/div", productNumber)));
 
        element.shouldBe(Condition.visible);
        element.click();
